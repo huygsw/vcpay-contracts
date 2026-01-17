@@ -15,13 +15,13 @@ This repository contains **GSWSafeV1**, a production-grade multi-signature walle
 
 ## Contracts
 
-| Contract | Description |
-|----------|-------------|
-| `GSWSafeV1.sol` | Main multi-signature wallet contract |
-| `tests/Counter.sol` | Test helper for calldata execution |
-| `tests/MockERC20.sol` | Test helper for token transfers |
-| `tests/Reenter.sol` | Test helper for reentrancy testing |
-| `tests/FailingContract.sol` | Test helper for error handling |
+| Contract                    | Description                          |
+| --------------------------- | ------------------------------------ |
+| `GSWSafeV1.sol`             | Main multi-signature wallet contract |
+| `tests/Counter.sol`         | Test helper for calldata execution   |
+| `tests/MockERC20.sol`       | Test helper for token transfers      |
+| `tests/Reenter.sol`         | Test helper for reentrancy testing   |
+| `tests/FailingContract.sol` | Test helper for error handling       |
 
 ## Prerequisites
 
@@ -46,12 +46,6 @@ npx hardhat compile
 
 ```bash
 npm t
-```
-
-### Run Tests with Coverage
-
-```bash
-npm run test:coverage
 ```
 
 ### Lint Contracts
@@ -87,6 +81,7 @@ cp .env.example .env
 ```
 
 Required variables:
+
 - `PRIVATE_KEY` - Deployment wallet private key
 - `BSCAN_API_KEY` - BSCScan API key for verification
 - `QUICK_NODE_HTTP_PROVIDER_URL` - RPC endpoint
@@ -115,10 +110,12 @@ npm run verify-script:bsc
 ### GSWSafeV1
 
 #### Execution Methods
+
 - `execute()` - Execute transaction, returns success status
 - `executeStrict()` - Execute transaction, reverts on failure
 
 #### Administrative Functions
+
 - `setExecutor()` - Change the executor address
 - `addOwner()` - Add new owner with optional threshold adjustment
 - `removeOwner()` - Remove owner with threshold adjustment
@@ -126,6 +123,7 @@ npm run verify-script:bsc
 - `cancelNonce()` - Invalidate pending transactions
 
 #### Security Features
+
 - Maximum deadline duration: 30 days
 - Sorted signature validation (prevents duplicate signers)
 - Shared nonce between execute and admin functions
